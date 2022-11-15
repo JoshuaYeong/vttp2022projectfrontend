@@ -1,0 +1,57 @@
+<img class="fullBg" fullpage src="assets/Tampines St 41-scaled.jpg">
+
+<div class="main-body">
+    <mat-card class="register-card" fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="15px">
+
+        <mat-card-header>
+            <mat-card-title class="register-title">Register</mat-card-title>
+        </mat-card-header>
+
+        <form class="register-form" *ngIf="!isSuccessful" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-card-content>
+                <div>
+                    <mat-form-field class="control" floatLabel="never">
+                        <input matInput placeholder="Username" formControlName="username" type="email" required>
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <div>
+                    <mat-form-field class="control" floatLabel="never">
+                        <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'"
+                            formControlName="password" type="password" required>
+                        <mat-icon class="md-visibility" matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' :
+                            'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <button class="control" type="submit" mat-raised-button color="accent" [disabled]="form.invalid">
+                <mat-icon>app_registration</mat-icon>
+                Register
+            </button>
+
+            <!-- <div class="alert alert-warning" *ngIf="form.submitted && isSignUpFailed">
+                Registration failed!
+                <br>
+                {{ errorMessage }}
+            </div>
+
+            <div class="alert alert-success" *ngIf="isSuccessful">
+                You have registered successfully!
+            </div> -->
+
+        </form>
+
+        <div>
+            <button class="back" type="button" mat-raised-button color="warn" [routerLink]="[ '/' ]">
+                <mat-icon>arrow_back_ios_new</mat-icon>
+                Back
+            </button>
+        </div>
+
+    </mat-card>
+</div>

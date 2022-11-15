@@ -1,0 +1,66 @@
+<img class="fullBg" fullpage src="assets/Tampines St 41-scaled.jpg">
+
+<div class="wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+
+    <mat-card class="signin-card">
+        <mat-card-header>
+            <mat-card-title class="signin-title">Sign In</mat-card-title>
+        </mat-card-header>
+
+        <br>
+
+        <form class="signin-form" *ngIf="!isSignedIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <div>
+                    <mat-form-field class="control" floatLabel="never">
+                        <input matInput placeholder="Username" formControlName="username" type="email" required>
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <div>
+                    <mat-form-field class="control" floatLabel="never">
+                        <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'"
+                            formControlName="password" type="password" required>
+                        <mat-icon class="md-visibility" matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' :
+                            'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <button class="signin-button" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+                <mat-icon>login</mat-icon>
+                Sign In
+            </button>
+
+            <br>
+
+            <div class="reg-control">
+                <span>Don't have an account? &nbsp;</span>
+                <a mat-button mat-raised-button color="accent" [routerLink]="[ '/register' ]">
+                    <mat-icon>app_registration</mat-icon>
+                    Register
+                </a>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <mat-error class="alert alert-danger" *ngIf="form.submitted && signedInFailed" role="alert">
+                    Sign In Failed: {{ errorMessage }}
+                </mat-error>
+            </div>
+
+        </form>
+
+        <div>
+            <button class="back" type="button" mat-raised-button color="warn" [routerLink]="[ '/' ]">
+                <mat-icon>arrow_back_ios_new</mat-icon>
+                Back
+            </button>
+        </div>
+    </mat-card>
+
+</div>

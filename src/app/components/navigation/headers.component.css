@@ -1,0 +1,61 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover,
+a:active {
+    color: lightgray;
+}
+
+.navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+mat-toolbar {
+    border-radius: 3px;
+}
+
+@media(max-width: 959px) {
+    mat-toolbar {
+        border-radius: 0px;
+    }
+}
+
+.mat-toolbar {
+    /* background: #35a798; */
+    background: #31988b;
+    /* background: #2e8f83; */
+    color: #fff;
+}
+
+.favColor {
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+    background: #317298;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 0.5em;
+    font-weight: 300px;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+}
+
+.customBtn {
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 0.5em;
+    font-weight: 300px;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+}

@@ -1,0 +1,98 @@
+<img class="fullBg" fullpage src="assets/ROCHER-CENTRE-1.jpg">
+
+<!-- <div>
+    <button class="back" mat-raised-button color="warn" (click)="signOut()">Sign Out</button>
+</div>
+
+<div>
+    <button class="back" mat-raised-button color="primary" (click)="toFavourites()">To Favourites</button>
+</div> -->
+
+<div class="container" *ngIf="currentUser; else signedOut">
+    <h2>
+        You are signed in as: {{ currentUser }}
+    </h2>
+</div>
+
+<!-- <div class="box-it">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <table>
+            <div>
+                <tr>
+                    <td>
+                        <label for="query">Query:</label>
+                    </td>
+                    <td>
+                        <input type="text" size="30" id="query" formControlName="query">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="limit">Limit:</label>
+                    </td>
+                    <td>
+                        <select id="limit" formControlName="limit">
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                        </select>
+                    </td>
+                </tr>
+            </div>
+
+            <div class="justify-right">
+                <button type="submit" mat-raised-button color="accent" class="btn-block"
+                    [disabled]="form.invalid">Search</button>
+            </div>
+
+        </table>
+    </form>
+</div> -->
+
+<div class="main-body">
+    <mat-card class="profile-card" fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="15px">
+
+        <!-- <mat-card-header>
+            <mat-card-title class="profile-title">Search</mat-card-title>
+        </mat-card-header> -->
+
+        <form class="profile-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-card-content>
+                <div>
+                    <mat-form-field class="control">
+                        <mat-label>Query:</mat-label>
+                        <input matInput type="text" id="query" formControlName="query">
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <div>
+                    <mat-form-field class="control">
+                        <mat-label>Limit:</mat-label>
+                        <mat-select id="limit" [(ngModel)]="selected" formControlName="limit">
+                            <mat-option value="5">5</mat-option>
+                            <mat-option value="10">10</mat-option>
+                            <mat-option value="15">15</mat-option>
+                            <mat-option value="20">20</mat-option>
+                            <mat-option value="25">25</mat-option>
+                            <mat-option value="30">30</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <button class="control" type="submit" mat-raised-button color="accent" [disabled]="form.invalid">
+                <mat-icon>search</mat-icon>
+                Search
+            </button>
+
+        </form>
+
+        <ng-template #signedOut>
+            Please Sign In.
+        </ng-template>

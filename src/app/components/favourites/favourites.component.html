@@ -1,0 +1,61 @@
+<div>
+    <button class="back" type="button" mat-raised-button color="warn" (click)="toProfilePage()">
+        <mat-icon>arrow_back_ios_new</mat-icon>
+        Back to Search
+        <!-- <mat-icon>search</mat-icon> -->
+    </button>
+</div>
+
+<!-- <div>
+    <button class="back" mat-raised-button color="warn" (click)="signOut()">Sign Out</button>
+</div> -->
+
+<!-- <div class="align-center">
+    <h2>Favourites for {{ username }}</h2>
+</div> -->
+
+<div class="align-center" *ngIf="favArr.length <= 0">
+    <span>
+        <h3>No Favourites Saved!</h3>
+    </span>
+</div>
+
+<div class="container" *ngIf="favArr.length > 0">
+    <h2>Saved Results</h2>
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">ID</div>
+            <div class="col col-2">Month</div>
+            <div class="col col-3">Town</div>
+            <div class="col col-4">Flat Type</div>
+            <div class="col col-5">Block</div>
+            <div class="col col-6">Street Name</div>
+            <div class="col col-7">Storey Range</div>
+            <div class="col col-8">Floor Area</div>
+            <div class="col col-9">Flat Model</div>
+            <div class="col col-10">Lease Commence Date</div>
+            <div class="col col-11">Resale Price</div>
+            <div class="col col-12">Delete?</div>
+        </li>
+        <li class="table-row" *ngFor="let f of favArr; let idx = index">
+            <div class="col col-1" data-label="ID">{{ f._id }}</div>
+            <div class="col col-2" data-label="Month">{{ f.month }}</div>
+            <div class="col col-3" data-label="Town">{{ f.town }}</div>
+            <div class="col col-4" data-label="Flat Type">{{ f.flatType }}</div>
+            <div class="col col-5" data-label="Block">{{ f.block }}</div>
+            <div class="col col-6" data-label="Street Name">{{ f.streetName }}</div>
+            <div class="col col-7" data-label="Storey Range">{{ f.storeyRange }}</div>
+            <div class="col col-8" data-label="Floor Area">{{ f.floorArea }}</div>
+            <div class="col col-9" data-label="Flat Model">{{ f.flatModel }}</div>
+            <div class="col col-10" data-label="Lease Commence Date">{{ f.leaseCommenceDate }}</div>
+            <div class="col col-11" data-label="Resale Price">{{ f.resalePrice | currency : 'SGD': 'symbol-narrow' }}
+            </div>
+            <div class="col col-12">
+                <button type="button" (click)="deleteFavourites(idx)">
+                    <!-- <mat-icon>delete</mat-icon> -->
+                    X
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>

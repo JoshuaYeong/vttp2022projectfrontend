@@ -1,0 +1,24 @@
+<mat-nav-list *ngIf="!isSignedIn">
+    <a mat-list-item routerLink="home" routerLinkActive="active" (click)="onSidenavClose(); reload()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item routerLink="signin" routerLinkActive="active" (click)="onSidenavClose()">
+        <mat-icon>login</mat-icon> <span class="nav-caption">Sign In</span>
+    </a>
+    <a mat-list-item routerLink="register" routerLinkActive="active" (click)="onSidenavClose()">
+        <mat-icon>app_registration</mat-icon><span class="nav-caption">Register</span>
+    </a>
+</mat-nav-list>
+
+<mat-nav-list *ngIf="isSignedIn">
+    <a mat-list-item routerLink="home" routerLinkActive="active" (click)="onSidenavClose()">
+        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+    </a>
+    <a mat-list-item [routerLink]="['/favourites', this.currentUser]" routerLinkActive="active"
+        (click)="onSidenavClose()">
+        <mat-icon>favorite</mat-icon> <span class="nav-caption">Favourites</span>
+    </a>
+    <a mat-list-item (click)="onSidenavClose(); signOut(); reload()">
+        <mat-icon>logout</mat-icon><span class="nav-caption">Sign Out</span>
+    </a>
+</mat-nav-list>
